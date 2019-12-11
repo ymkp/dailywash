@@ -1,0 +1,45 @@
+name: daily_wash
+description: A new Flutter application.
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+  shared_preferences:
+  http:
+  provider:
+  auto_size_text:
+  intl:
+  font_awesome_flutter:
+  carousel_slider:
+  flutter_xlider:
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+  assets:
+    - res/fonts/
+    - res/graphics/
+    - res/icons/
+
+  fonts:
+    - family: SFProBold
+      fonts:
+        - asset: res/fonts/sfprobold.otf
+
+    - family: SFPro
+      fonts:
+        - asset: res/fonts/sfpro.otf
+
+
