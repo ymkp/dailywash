@@ -33,12 +33,12 @@ class _SplashScreenState extends State<SplashScreen> {
                   margin: EdgeInsets.only(top:100),
                   alignment: Alignment.center,
                   child:
-                  Image.asset('res/graphics/logo.png')
+                  Image.asset('res/graphics/logo.jpg')
               ),
               ),
               Container(margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 30.0),
                 child:
-                Text("Maersk All in One 2019", style: TextStyle(fontSize: 16.0, color: Colors.black,),
+                Text("vantura.id 2019", style: TextStyle(fontSize: 12.0, color: Colors.black,),
                 ),
               ),
             ],
@@ -57,7 +57,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(Duration(milliseconds: 1000), (){
 
       if (token == null || token == '') {
-        Navigator.of(context).pushNamedAndRemoveUntil('Home', (Route<dynamic> route) => false);
+        Navigator.of(context).pushNamedAndRemoveUntil('Login', (Route<dynamic> route) => false);
       } else {
         Navigator.of(context).pushNamedAndRemoveUntil('Home', (Route<dynamic> route) => false);
       }

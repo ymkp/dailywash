@@ -8,35 +8,35 @@ class HomeNearestOutlet extends StatelessWidget{
   final List<Map<String, dynamic>> nearestLaundries = [
     {
       'id':1,
-      'image':'https://picsum.photos/seed/laundry1/200/300',
-      'name':'Laundry Perkasa',
+      'image':'https://picsum.photos/seed/kebonjeruk/200/300',
+      'name':'Kebon Jeruk',
       'address':'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-      'distance' : 0.3,
-      'business_hours' : '09.00 - 20.00'
+      'distance' : 0.1,
+      'business_hours' : '08.00 - 19.30'
     },
     {
       'id':2,
-      'image':'https://picsum.photos/seed/laundry2/200/300',
-      'name':'Bu Cin - Menteng atas',
+      'image':'https://picsum.photos/seed/tanjungduren/200/300',
+      'name':'Tanjung Duren',
       'address':'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-      'distance' : 1.5,
-      'business_hours' : '09.00 - 23.00'
+      'distance' : 0.9,
+      'business_hours' : '07.00 - 20.30'
     },
     {
       'id':3,
-      'image':'https://picsum.photos/seed/laundry3/200/300',
-      'name':'Laundry Perkasa',
+      'image':'https://picsum.photos/seed/pasarminggu/200/300',
+      'name':'Pasar Minggu',
       'address':'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-      'distance' : 3.0,
-      'business_hours' : '07.00 - 21.00'
+      'distance' : 1.4,
+      'business_hours' : '10.00 - 18.30'
     },
     {
       'id':4,
-      'image':'https://picsum.photos/seed/laundry4/200/300',
-      'name':'Laundry Doa Ibu',
+      'image':'https://picsum.photos/seed/ibuamirnco/200/300',
+      'name':'Ibu Amir & Co',
       'address':'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-      'distance' : 9.2,
-      'business_hours' : '00.00 - 24.00'
+      'distance' : 2.4,
+      'business_hours' : '06.00 - 21.00'
     },
 
   ];

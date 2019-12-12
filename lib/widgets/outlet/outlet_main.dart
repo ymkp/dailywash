@@ -23,7 +23,7 @@ class _OutletMainState extends State<OutletMain>{
     // TODO: implement build
     return SingleChildScrollView(
       child: Container(
-        height: sizeVertical * 100,
+        height: sizeVertical * 102,
         child: Column(
           children: <Widget>[
             Container(
@@ -163,7 +163,8 @@ class _OutletMainState extends State<OutletMain>{
             Expanded(
 //            height: sizeVertical * 67,
               child: ServiceTab(outletInfo: oip.outletInfo,),
-            )
+            ),
+
           ],
         ),
       ),

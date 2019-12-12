@@ -18,25 +18,25 @@ class _InboxMainState extends State<InboxMain>{
       date: 'Hari ini, 15.30'
     ),
     Inbox(
-        id: 2,
+        id: 1,
         title: 'Kamu punya promo dry wash minggu ini',
         subTitle: 'dapatkan vouchernya dengan melengkapi data pada profil',
         date: 'Kemarin, 08.30'
     ),
     Inbox(
-        id: 3,
+        id: 1,
         title: 'Kamu punya promo dry wash minggu ini',
         subTitle: 'dapatkan vouchernya dengan melengkapi data pada profil',
         date: 'Kemarin, 11.11'
     ),
     Inbox(
-        id: 4,
+        id: 1,
         title: 'Kamu punya promo dry wash minggu ini',
         subTitle: 'dapatkan vouchernya dengan melengkapi data pada profil',
         date: '07-12-2019, 12.11'
     ),
     Inbox(
-        id: 5,
+        id: 1,
         title: 'Kamu punya promo 3 KG minggu ini',
         subTitle: 'dapatkan vouchernya dengan melengkapi data pada profil',
         date: '01-12-2019, 00.30'

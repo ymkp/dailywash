@@ -5,6 +5,9 @@ import 'package:daily_wash/models/order_checkout.dart';
 import 'package:daily_wash/constants/theme.dart';
 import 'package:intl/intl.dart';
 import 'package:daily_wash/widgets/order/method_payment_bottom_sheet.dart';
+import 'package:provider/provider.dart';
+import 'package:daily_wash/providers/picker_provider.dart';
+import 'package:daily_wash/pages/location_picker_screen.dart';
 
 class OrderCheckoutMain extends StatefulWidget{
 
@@ -28,6 +31,7 @@ class _OrderCheckoutMainState extends State<OrderCheckoutMain>{
   TextEditingController notesCtrl = TextEditingController();
   FocusNode notesFocus = FocusNode();
 
+  PickerProvider pp ;
 
   @override
   void initState() {
@@ -46,7 +50,7 @@ class _OrderCheckoutMainState extends State<OrderCheckoutMain>{
 
   @override
   Widget build(BuildContext context) {
-    print('this');
+    pp = Provider.of<PickerProvider>(context);
     // TODO: implement build
     return SingleChildScrollView(
       child: Container(
@@ -135,14 +139,14 @@ class _OrderCheckoutMainState extends State<OrderCheckoutMain>{
                       child: Text('Pengambilan (oleh kurir)', style: t3(Colors.grey),),
                     ),
                     Container(
-                      child: Text('ASLDJLAKSJDLAaklsdj SKDJLAKSJD LASKJDLKASJD', style: h6(Colors.black),),
+                      child: Text((pp.pickupAddress != '')?pp.pickupAddress:'Pilih Lokasi Pengambilan', style: h6(Colors.black),),
                     )
                   ],
                 ),
               ),
               GestureDetector(
                 onTap: (){
-                  print('clicked');
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => PickupPickerScreen(pickerProvider: pp,isPickup: true,)));
                 },
                 child: Container(
                   width: sizeHorizontal * 7,
@@ -165,14 +169,14 @@ class _OrderCheckoutMainState extends State<OrderCheckoutMain>{
                       child: Text('Pengantaran (oleh kurir)', style: t3(Colors.grey),),
                     ),
                     Container(
-                      child: Text('ASLDJLAKSJDLASKDJLAKSJD LASKJDLKASJD', style: h6(Colors.black),),
+                      child: Text((pp.destAddress != '')?pp.destAddress:'Pilih Lokasi Pengantaran', style: h6(Colors.black),),
                     )
                   ],
                 ),
               ),
               GestureDetector(
                 onTap: (){
-                  print('clicked');
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => PickupPickerScreen(pickerProvider: pp,isPickup: false,)));
                 },
                 child: Container(
                   width: sizeHorizontal * 7,

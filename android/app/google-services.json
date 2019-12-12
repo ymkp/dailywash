@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "831137381676",
+    "firebase_url": "https://dailywash-2223c.firebaseio.com",
+    "project_id": "dailywash-2223c",
+    "storage_bucket": "dailywash-2223c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831137381676:android:9c91d16e6daf5e3b9cc089",
+        "android_client_info": {
+          "package_name": "id.vantura.daily_wash"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "831137381676-bfkriaqnec5c3thlcjbukbh9lhpat5h3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9mijJ3jMUNjv9VVDa4OEflhzPx1BdtHs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "831137381676-bfkriaqnec5c3thlcjbukbh9lhpat5h3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

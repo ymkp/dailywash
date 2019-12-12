@@ -48,13 +48,16 @@ class _OrderDetailMainState extends State<OrderDetailMain>{
             child: Column(
               children: <Widget>[
                 Container(
+                  height: 40,
+                  width: 40,
+                  padding: EdgeInsets.all(10),
                   margin : EdgeInsets.only(bottom: 10),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: (odp.state == ODPState.loading || odp.state == ODPState.error)?Colors.white:(odp.orderDetail.status > 1)?dailyBlue:Colors.cyanAccent,
                       border: Border.all(color: dailyBlue)
                   ),
-                  child: Icon(Icons.check, color: Colors.white,),
+                  child: Image.asset('res/icons/status1.png', scale: 8,),
                 ),
                 AutoSizeText('Dalam Antrian' , style: t4(Colors.black),minFontSize: 4,maxLines: 1,)
               ],
@@ -67,13 +70,16 @@ class _OrderDetailMainState extends State<OrderDetailMain>{
             child: Column(
               children: <Widget>[
                 Container(
+                  height: 40,
+                  width: 40,
+                  padding: EdgeInsets.all(10),
                   margin : EdgeInsets.only(bottom: 10),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: (odp.state == ODPState.loading || odp.state == ODPState.error)?Colors.white:(odp.orderDetail.status > 2)?dailyBlue:Colors.cyanAccent,
                       border: Border.all(color: dailyBlue)
                   ),
-                  child: Icon(Icons.check, color: Colors.white,),
+                  child: Image.asset('res/icons/status2.png',scale: 10,),
                 ),
                 AutoSizeText('Sudah Dicuci' , style: t4(Colors.black),maxLines: 1,minFontSize: 4,)
               ],
@@ -86,13 +92,16 @@ class _OrderDetailMainState extends State<OrderDetailMain>{
             child: Column(
               children: <Widget>[
                 Container(
+                  height: 40,
+                  width: 40,
+                  padding: EdgeInsets.all(10),
                   margin : EdgeInsets.only(bottom: 10),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: (odp.state == ODPState.loading || odp.state == ODPState.error)?Colors.white:(odp.orderDetail.status > 3)?dailyBlue:Colors.cyanAccent,
                       border: Border.all(color: dailyBlue)
                   ),
-                  child: Icon(Icons.check, color: Colors.white,),
+                  child: Image.asset('res/icons/status3.png',scale: 10,),
                 ),
                 AutoSizeText('Siap Diambil' , style: t4(Colors.black),minFontSize: 4,maxLines: 1,)
               ],
@@ -105,13 +114,16 @@ class _OrderDetailMainState extends State<OrderDetailMain>{
             child: Column(
               children: <Widget>[
                 Container(
+                  height: 40,
+                  width: 40,
+                  padding: EdgeInsets.all(10),
                   margin : EdgeInsets.only(bottom: 10),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: (odp.state == ODPState.loading || odp.state == ODPState.error)?Colors.white:(odp.orderDetail.status > 4)?dailyBlue:Colors.cyanAccent,
                       border: Border.all(color: dailyBlue)
                   ),
-                  child: Icon(Icons.check, color: Colors.white,),
+                  child: Image.asset('res/icons/status99.png',scale: 10,),
                 ),
                 AutoSizeText('Selesai' , style: t4(Colors.black),minFontSize: 8,maxLines: 1,)
               ],

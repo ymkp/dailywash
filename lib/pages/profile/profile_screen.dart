@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:daily_wash/constants/theme.dart';
+import 'package:daily_wash/widgets/profile/profile_main.dart';
 
 class ProfileScreen extends StatefulWidget{
 
@@ -17,9 +18,7 @@ class _HomePageScreenState extends State<ProfileScreen>{
         title: Text('Profile'),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        child: Container(),
-      ),
+      body: ProfileMain(),
     );
   }
 }

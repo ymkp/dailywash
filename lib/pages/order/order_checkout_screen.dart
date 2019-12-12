@@ -3,7 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:daily_wash/models/order_checkout.dart';
 import 'package:daily_wash/widgets/order/order_checkout_main.dart';
-
+import 'package:daily_wash/providers/picker_provider.dart';
+import 'package:provider/provider.dart';
 
 
 class OrderCheckoutScreen extends StatefulWidget{
@@ -73,7 +74,10 @@ class _OrderCheckoutScreenState extends State<OrderCheckoutScreen>{
         centerTitle: true,
         title: Text('Pesan Laundry'),
       ),
-      body: OrderCheckoutMain(orderCheckouts: widget.orderCheckouts,),
+      body: ChangeNotifierProvider(
+        create: (_) => PickerProvider(),
+        child: OrderCheckoutMain(orderCheckouts: widget.orderCheckouts,),
+      ),
     );
   }
 }

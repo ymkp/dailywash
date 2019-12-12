@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:daily_wash/models/inbox_model.dart';
 import 'package:daily_wash/constants/theme.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:daily_wash/pages/promo/promo_info_screen.dart';
 
 class InboxCard extends StatelessWidget{
 
@@ -15,6 +16,7 @@ class InboxCard extends StatelessWidget{
     return GestureDetector(
       onTap: (){
         print(inbox.id.toString()+' clicked');
+        Navigator.push(context, MaterialPageRoute(builder: (context) => PromoInfoScreen(id: inbox.id,)));
       },
       child: Container(
         decoration: BoxDecoration(

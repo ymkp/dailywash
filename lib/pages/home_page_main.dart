@@ -4,7 +4,6 @@ import 'package:daily_wash/pages/home/home_page_screen.dart';
 import 'package:daily_wash/pages/history/history_screen.dart';
 import 'package:daily_wash/pages/profile/profile_screen.dart';
 import 'package:daily_wash/pages/inbox/inbox_screen.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePageMain extends StatefulWidget{
 

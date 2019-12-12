@@ -19,11 +19,24 @@ dependencies:
   font_awesome_flutter:
   carousel_slider:
   flutter_xlider:
+  google_maps_flutter: ^0.5.21+7
+  location:
+  flutter_google_places: 0.2.3
+  webview_flutter:
+  google_maps_webservice:
+  geocoder:
+  geolocator:
+  flutter_launcher_icons:
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "res/logodailywash.jpeg"
 
 flutter:
 

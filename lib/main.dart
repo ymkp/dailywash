@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:daily_wash/pages/splash_screen.dart';
 import 'package:daily_wash/pages/home_page_main.dart';
 import 'package:daily_wash/constants/theme.dart';
+import 'package:daily_wash/pages/login/login_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget{
       ),
       home: SplashScreen(),
       routes: <String, WidgetBuilder>{
-//        'Login' : (BuildContext context) => LoginScreen(),
+        'Login' : (BuildContext context) => LoginScreen(),
         'Home' : (BuildContext context) => HomePageMain(),
       },
     );

@@ -104,7 +104,7 @@ class _MakeOrderMainState extends State<MakeOrderMain>{
             child: DropdownButton(
               isExpanded: true,
               icon: Icon(Icons.keyboard_arrow_down),
-              hint: Text('wew'),
+              hint: Text('Pilih servis'),
               value: selectedService,
               onChanged: (value){
                 print(value);
@@ -128,15 +128,6 @@ class _MakeOrderMainState extends State<MakeOrderMain>{
 
   }
 
-  cucianBox(){
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      child: Container(
-        child: orderBoxes[position],
-      ),
-    );
-  }
-
   cucianBox2(){
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
@@ -144,7 +135,11 @@ class _MakeOrderMainState extends State<MakeOrderMain>{
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text('Cucian',style: h5(Colors.black),),
-          ListView.builder(
+          (selectedService == null)?Container(
+            child: Center(
+              child: Text('Pilih Servis Dulu'),
+            ),
+          ):ListView.builder(
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: orderBoxes.length,

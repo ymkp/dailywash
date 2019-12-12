@@ -119,6 +119,12 @@ TextStyle t4 (Color color) => TextStyle(
     color: color
 );
 
+TextStyle t3U (Color color) => TextStyle(
+    fontSize: sizeHorizontal * 3,
+    color: color,
+  decoration: TextDecoration.underline
+);
+
 TextStyle t5 (Color color) => TextStyle(
     fontSize: sizeHorizontal * 2,
     color: color
@@ -155,59 +161,14 @@ const Color blueLogo = Color(0xFF4C5359);
 const Color redLogo = Color(0xFFED1B24);
 
 const Color dailyRed = Color(0xFFF22E46);
+const Color dailyRedShadow = Color(0x55F22E46);
+
 const Color dailyBlue = Color(0xFF003459);
 const Color dailyBlueShadow = Color(0x55003459);
 
 const Color dailyWhite = Color(0xFFF8F8F8);
 //-------------------------------------
 
-
-//----------------------------decoration_box_section
-const BoxDecoration trackAndTraceButtonDecoration = BoxDecoration(
-  borderRadius: BorderRadius.all(Radius.circular(10)),
-  shape: BoxShape.rectangle,
-  color: maerskBlue,
-);
-
-BoxDecoration formContainer = BoxDecoration(
-  borderRadius: BorderRadius.all(Radius.circular(10)),
-  border: Border.all(color: maerskBlue, width: 1, style: BorderStyle.solid),
-);
-
-const BoxDecoration addFormButtonDecoration = BoxDecoration(
-  shape: BoxShape.rectangle,
-  color: maerskBlue,
-);
-
-const BoxDecoration removeFormButtonDecoration = BoxDecoration(
-  shape: BoxShape.rectangle,
-  color: dangerRed,
-);
-
-const BoxDecoration smallHomeButtons =
-BoxDecoration(shape: BoxShape.rectangle, color: Colors.grey);
-
-BoxDecoration debugDemoCont = BoxDecoration(
-  border: Border.all(color: Colors.grey, width: 1, style: BorderStyle.solid),
-  borderRadius: BorderRadius.circular(10.0),
-);
-
-BoxDecoration formLogin = BoxDecoration(
-    color: Colors.white,
-    // boxShadow: [
-    //   BoxShadow(color: Colors.grey[300], offset: Offset(5, 5), blurRadius: 5)
-    // ],
-    borderRadius: BorderRadius.circular(10.0),
-    border: Border.all(color: Colors.grey, width: 1)
-);
-
-BoxDecoration buttonLogin = BoxDecoration(
-  color: Colors.blue[300],
-  boxShadow: [
-    BoxShadow(color: Colors.grey[300], offset: Offset(5, 5), blurRadius: 5)
-  ],
-  borderRadius: BorderRadius.circular(20.0),
-);
 
 //--------------------------------------------
 void showInSnackBar(BuildContext context, GlobalKey<ScaffoldState> scaffoldKey,
@@ -335,7 +296,7 @@ loadingContainer({double height, double width}){
     height: height,
     width: width,
     decoration:  BoxDecoration(
-      color: youngBlue,
+      color: dailyRedShadow,
       borderRadius: BorderRadius.circular(10.0),
     ),
   );
