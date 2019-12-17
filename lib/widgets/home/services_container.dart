@@ -13,6 +13,7 @@ class ServicesContainer extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
+      margin: EdgeInsets.symmetric( vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -24,7 +25,7 @@ class ServicesContainer extends StatelessWidget{
                 Text('Tidak sempat mencuci?',style: h5(Colors.black),),
                 Text('Kami Siap membersihkan berbagai barang anda',style: t3(Colors.grey),),
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 10),
+                  margin: EdgeInsets.only(top: 20, bottom: 5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -39,7 +40,7 @@ class ServicesContainer extends StatelessWidget{
                               color: dailyRed,
                               borderRadius: BorderRadius.all(Radius.circular(20))
                           ),
-                          child: Text('Lihat Semua', style: h6(Colors.white),),
+                          child: Text('Lihat Semua', style: h7(Colors.white),),
                         ),
                       )
                     ],

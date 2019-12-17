@@ -8,11 +8,13 @@ import 'package:daily_wash/widgets/order/method_payment_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 import 'package:daily_wash/providers/picker_provider.dart';
 import 'package:daily_wash/pages/location_picker_screen.dart';
+import 'package:daily_wash/widgets/order/notes_on_checkout.dart';
 
 class OrderCheckoutMain extends StatefulWidget{
 
+  final String alamatLaundry;
   final List<OrderCheckout> orderCheckouts;
-  OrderCheckoutMain({this.orderCheckouts});
+  OrderCheckoutMain({this.orderCheckouts, this.alamatLaundry});
 
   @override
   _OrderCheckoutMainState createState() => _OrderCheckoutMainState();
@@ -26,10 +28,12 @@ class _OrderCheckoutMainState extends State<OrderCheckoutMain>{
   final formatter = new NumberFormat("#,###");
   String paymentMethod = '';
   MethodPaymentBottomSheet mpbs;
+  NotesOnCheckout noc;
   String notes = '';
 
   TextEditingController notesCtrl = TextEditingController();
   FocusNode notesFocus = FocusNode();
+  int notesTextCount = 0;
 
   PickerProvider pp ;
 
@@ -48,6 +52,8 @@ class _OrderCheckoutMainState extends State<OrderCheckoutMain>{
     }
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     pp = Provider.of<PickerProvider>(context);
@@ -55,6 +61,7 @@ class _OrderCheckoutMainState extends State<OrderCheckoutMain>{
     return SingleChildScrollView(
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: sizeHorizontal * 5),
+        padding: EdgeInsets.only(top: 30, bottom: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -139,18 +146,18 @@ class _OrderCheckoutMainState extends State<OrderCheckoutMain>{
                       child: Text('Pengambilan (oleh kurir)', style: t3(Colors.grey),),
                     ),
                     Container(
-                      child: Text((pp.pickupAddress != '')?pp.pickupAddress:'Pilih Lokasi Pengambilan', style: h6(Colors.black),),
+                      child: Text(widget.alamatLaundry, style: h6(Colors.black),),
                     )
                   ],
                 ),
               ),
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => PickupPickerScreen(pickerProvider: pp,isPickup: true,)));
+//                  Navigator.push(context, MaterialPageRoute(builder: (context) => PickupPickerScreen(pickerProvider: pp,isPickup: true,)));
                 },
                 child: Container(
                   width: sizeHorizontal * 7,
-                  child: Image.asset('res/icons/map_marker.png'),
+                  child: null,
                 ),
               )
             ],
@@ -261,7 +268,7 @@ class _OrderCheckoutMainState extends State<OrderCheckoutMain>{
 //          border: Border.all(color: dailyBlue)
         ),
         padding: EdgeInsets.only(top: 30, left: sizeHorizontal * 5, right: sizeHorizontal * 5, bottom: 5),
-        height: 360,
+        height: sizeVertical * 50,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -270,41 +277,12 @@ class _OrderCheckoutMainState extends State<OrderCheckoutMain>{
               margin: EdgeInsets.symmetric(vertical: 10),
               child: Text('Beri tahu soal cucian anda, apakah harus pakai air hangat, air dingin atau air lainnya, oke oke?', style: t3(Colors.black45),),
             ),
-            Container(
-              margin: EdgeInsets.only(top: 5, bottom: 10),
-              padding: EdgeInsets.only(left: 5, right: 5, bottom: 15),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(7)),
-                border: Border.all(color: dailyBlueShadow)
-              ),
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    child: TextFormField(
-                      controller: notesCtrl,
-                      focusNode: notesFocus,
-                      style: t3(Colors.black),
-                      maxLines: 6,
-                      keyboardType: TextInputType.multiline,
-                      decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintStyle: t3(Colors.grey),
-                          hintText: 'Es teh tiga'
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(right: 10),
-                    alignment: Alignment.centerRight,
-                    child: Text('Ganti / angka', style: t3(Colors.grey),textAlign: TextAlign.end,)
-                  )
-                ],
-              ),
-            ),
+            noc = NotesOnCheckout(initialText: notes,),
             GestureDetector(
               onTap: (){
+                print(noc.text);
                 setState(() {
-                  notes = notesCtrl.text;
+                  notes = noc.text;
                 });
                 Navigator.pop(context);
               },
@@ -336,14 +314,21 @@ class _OrderCheckoutMainState extends State<OrderCheckoutMain>{
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Container(),
           Container(
-            margin: EdgeInsets.only(top: 10),
+            child: Text('Catatan', style: h5(dailyBlue),),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 5),
             child: Text(notes,style: t3(Colors.black),)
           )
         ],
       ),
     ):Container();
+  }
+
+
+  String getProperTitle(String s){
+    return s[0].toUpperCase()+s.substring(1);
   }
 
   orderCucianBox(OrderCheckout oc){
@@ -362,7 +347,7 @@ class _OrderCheckoutMainState extends State<OrderCheckoutMain>{
                     ),
                     TextSpan(
                         style: h4(Colors.black),
-                        text: oc.name
+                        text: getProperTitle(oc.name).replaceAll('_', ' ')
                     )
                   ]
               ),
@@ -522,7 +507,6 @@ class _OrderCheckoutMainState extends State<OrderCheckoutMain>{
   }
 
   onPaymentMethodPressed(){
-    print('that');
     return showBottomSheet(
         context: context,
         builder: (context)=>Container(
@@ -537,7 +521,8 @@ class _OrderCheckoutMainState extends State<OrderCheckoutMain>{
             ],
             borderRadius: BorderRadius.vertical(top:Radius.circular(15)),
 //          border: Border.all(color: dailyBlue)
-          ),          height: 270,
+          ),
+          height: sizeVertical * 38,
           child: Column(
             children: <Widget>[
               mpbs = MethodPaymentBottomSheet(pm: paymentMethod,),

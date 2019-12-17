@@ -52,6 +52,7 @@ class _OutletsByServiceMain extends State<OutletsByServiceMain>{
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Container(
+                  margin: EdgeInsets.symmetric(vertical: 10),
                   width: sizeHorizontal * 40,
                   child:  Text('Pilih Jasa', style: h5(Colors.black),),
                 ),
@@ -80,7 +81,7 @@ class _OutletsByServiceMain extends State<OutletsByServiceMain>{
         children: <Widget>[
           Row(),
           Container(
-            height: 70,
+            height: 90,
             child: ListView.builder(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,

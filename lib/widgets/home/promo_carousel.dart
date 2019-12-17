@@ -1,7 +1,7 @@
 import 'package:daily_wash/constants/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-
+import 'package:daily_wash/pages/promo/promo_info_screen.dart';
 
 class PromoCarousel extends StatefulWidget{
 
@@ -30,11 +30,10 @@ class _PromoCarouselState extends State<PromoCarousel>{
   carouselContainer({int id}){
     return GestureDetector(
       onTap: (){
-        print('$id is clicked');
+        Navigator.push(context, MaterialPageRoute(builder: (context) => PromoInfoScreen(id: 1,)));
       },
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 5),
-        height: 50,
         width: 300,
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -57,8 +56,9 @@ class _PromoCarouselState extends State<PromoCarousel>{
               items: carouselItems,
               autoPlay: true,
               aspectRatio: 2,
-              viewportFraction: 0.8,
+              viewportFraction: 0.7,
               enlargeCenterPage: true,
+
             ),
           ]
       ),

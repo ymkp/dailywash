@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:daily_wash/constants/theme.dart';
 import 'package:daily_wash/models/outlet_info_model.dart';
 import 'package:intl/intl.dart';
-import 'package:daily_wash/pages/order/make_order_screen.dart';
 
 
 class DecoratedTabBar extends StatelessWidget implements PreferredSizeWidget {
@@ -45,8 +44,10 @@ class _ServiceTabState extends State<ServiceTab>{
   init(){
     for(Service s in widget.outletInfo.services){
       tabs.add(Container(
-        width: 30,
-        height: 30,
+        alignment: Alignment.topCenter,
+
+        width: 50,
+        height: 50,
         child: Image.asset('res/icons/service_'+s.name+'_small.png'),
       ));
       tabContents.add(tabContent(s));
@@ -60,33 +61,17 @@ class _ServiceTabState extends State<ServiceTab>{
     init();
   }
 
-  orderDeliveryButton(){
-    return GestureDetector(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => MakeOrderScreen(outletInfo: widget.outletInfo,)));
-      },
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: 10),
-        width: sizeHorizontal * 90,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
-          color: dailyRed
-        ),
-        child: Text('Buat Pesanan Laundry',style: h5(Colors.white),textAlign: TextAlign.center,),
-      ),
-    );
-  }
+
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: tabs.length,
       child: Scaffold(
-        floatingActionButton: (widget.outletInfo.serviceNames.contains('delivery'))?orderDeliveryButton():null,
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(40),
+          preferredSize: Size.fromHeight(60),
           child: AppBar(
+            leading: Container(),
             bottom: DecoratedTabBar(
               decoration: BoxDecoration(
                   border: Border(
@@ -120,7 +105,7 @@ class _ServiceTabState extends State<ServiceTab>{
 
   tabContent(Service service){
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: sizeHorizontal * 6, vertical: 20),
+      margin: EdgeInsets.only(left: sizeHorizontal * 6, right: sizeHorizontal * 6, top: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

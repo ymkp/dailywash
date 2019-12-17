@@ -7,28 +7,32 @@ class CustomerHeader extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: sizeHorizontal * 6),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Container(
-            child: Row(
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.only(right: 5),
-                  child: Icon(Icons.person),
-                ),
-                Container(
-                  width: sizeHorizontal * 65,
-                  child: Text('Yochanan Maranatha Kristian Putra', style: h6(Colors.black),),
-                )
-              ],
+      margin: EdgeInsets.symmetric(horizontal: sizeHorizontal * 6 , vertical: 15),
+      child: Card(
+        elevation: 3,
+        child:  Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(right: 5),
+                    child: Icon(Icons.person),
+                  ),
+                  Container(
+                    width: sizeHorizontal * 65,
+                    child: Text('Reza Ilham Maulana', style: h6(Colors.black),),
+                  )
+                ],
+              ),
             ),
-          ),
-          Container(
-            child: Icon(Icons.notifications),
-          )
-        ],
+            Container(
+              child: Icon(Icons.notifications),
+            )
+          ],
+        ),
       ),
     );
   }

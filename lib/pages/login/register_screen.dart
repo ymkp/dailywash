@@ -39,7 +39,7 @@ class _RegisterScreenState extends State<RegisterScreen>{
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.symmetric(horizontal: sizeHorizontal * 6, vertical: 35),
+          margin: EdgeInsets.symmetric(horizontal: sizeHorizontal * 6, vertical: sizeVertical * 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[

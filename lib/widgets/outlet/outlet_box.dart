@@ -25,18 +25,15 @@ class OutletBox extends StatelessWidget{
       },
       child: Container(
         margin: EdgeInsets.only(left: sizeHorizontal * 5),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(5)),
-            color: Colors.white
-        ),
-        width: 250,
+        height: 210,
+        width: 270,
         child: Card(
           elevation: 3,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                height: sizeHorizontal * 25,
+                height: 100,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.vertical(top: Radius.circular(5)),
                     image: DecorationImage(
@@ -56,16 +53,21 @@ class OutletBox extends StatelessWidget{
 //                child: AutoSizeText(address, style: t3(Colors.grey),maxLines: 2,),
 //              )
               Container(
+                width: 270,
+                height: 50,
                 padding: EdgeInsets.symmetric(vertical:3,horizontal: 5),
                 child: Row(
-//                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Container(
-                      width: 100,
+                      width: 120,
                       child: Row(
                         children: <Widget>[
                           Icon(FontAwesomeIcons.mapMarkerAlt, color: dailyRed, size: 20,),
-                          Text('  '+distance.toString()+' KM',style: t4(Colors.black),)
+                          Container(
+                            width: 90,
+                            child: AutoSizeText('  '+distance.toString()+' KM',style: t4(Colors.black),maxLines: 1, minFontSize: 10,)
+                          )
                         ],
                       ),
                     ),
@@ -74,7 +76,10 @@ class OutletBox extends StatelessWidget{
                       child: Row(
                         children: <Widget>[
                           Icon(FontAwesomeIcons.solidClock, color: warningOrange,size: 20, ),
-                          Text('  '+businessHours,style: t4(Colors.black),)
+                          Container(
+                            width: 90,
+                            child: AutoSizeText('  '+businessHours,style: t4(Colors.black), maxLines:  1, minFontSize: 10,),
+                          )
                         ],
                       ),
                     ),                  ],

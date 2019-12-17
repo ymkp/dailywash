@@ -68,12 +68,12 @@ class _MakeOrderMainState extends State<MakeOrderMain>{
     // TODO: implement build
     return SingleChildScrollView(
       child: Container(
-        height: sizeVertical * 90,
+        height: sizeVertical * 91,
         margin: EdgeInsets.symmetric(horizontal: sizeHorizontal * 5),
         child: Stack(
           children: <Widget>[
             Container(
-              height: sizeVertical * 83,
+              height: sizeVertical * 82,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -91,6 +91,8 @@ class _MakeOrderMainState extends State<MakeOrderMain>{
       ),
     );
   }
+
+
 
   selectServiceBox(){
     return Container(
@@ -157,7 +159,7 @@ class _MakeOrderMainState extends State<MakeOrderMain>{
 
   sendBox(){
     return GestureDetector(
-      onTap: (){
+      onTap: (isOrderValid)?(){
         orderCheckouts.clear();
         for(String s in widget.outletInfo.serviceNames){
           List<OrderDetail> od = [];
@@ -176,11 +178,11 @@ class _MakeOrderMainState extends State<MakeOrderMain>{
           }
         }
         print('ada : '+orderCheckouts.length.toString());
-        Navigator.push(context, MaterialPageRoute(builder: (context) => OrderCheckoutScreen(orderCheckouts: orderCheckouts,)));
-      },
+        Navigator.push(context, MaterialPageRoute(builder: (context) => OrderCheckoutScreen(orderCheckouts: orderCheckouts,alamatLaundry: widget.outletInfo.address,)));
+      }:null,
       child: Container(
         decoration: BoxDecoration(
-          color: dailyRed,
+          color: (isOrderValid)? dailyRed:dailyRedShadow,
           borderRadius: BorderRadius.all(Radius.circular(5))
         ),
         padding: EdgeInsets.symmetric(vertical: 10),
@@ -189,6 +191,8 @@ class _MakeOrderMainState extends State<MakeOrderMain>{
       ),
     );
   }
+
+  bool isOrderValid = false;
 
   checkThis(){
     int c = 0;
@@ -201,8 +205,14 @@ class _MakeOrderMainState extends State<MakeOrderMain>{
         c+=o.quantity;
       }
     }
+
     setState(() {
       inCart = c;
+      if(c != 0){
+        isOrderValid = true;
+      }else{
+        isOrderValid = false;
+      }
     });
     print('dalam cart : '+c.toString());
   }

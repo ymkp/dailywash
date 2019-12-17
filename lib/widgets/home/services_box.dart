@@ -28,7 +28,7 @@ class ServiceBox extends StatelessWidget{
                 height: 45,
                 child: Image.asset('res/icons/service_$assetLocation.png'),
               ),
-              Text(name,style: t4(Colors.black),)
+              AutoSizeText(name,style: t4(Colors.black),minFontSize: 10,maxLines: 1,)
             ],
           ),
         ),
@@ -72,21 +72,21 @@ class _ServiceBoxSmallState extends State<ServiceBoxSmall>{
     return  Stack(
       children: <Widget>[
         Container(
-          margin: EdgeInsets.only(left: sizeHorizontal * 5),
-          height: 75,
-          width: 75,
+          margin: EdgeInsets.only(left: sizeHorizontal * 4),
+          height: 85,
+          width: 85,
           child: Card(
             elevation: 3,
             child: Container(
-              padding: EdgeInsets.symmetric( horizontal: 3,),
+              padding: EdgeInsets.symmetric( horizontal: 3,vertical: 10),
               child: Column(
                 children: <Widget>[
                   Container(
-                    width: 45,
-                    height: 45,
+                    width: 40,
+                    height: 40,
                     child: Image.asset('res/icons/service_'+widget.assetLocation+'_small.png'),
                   ),
-                  AutoSizeText(widget.name,style: t4(Colors.black),minFontSize: 5,maxLines: 1,)
+                  AutoSizeText(widget.name,style: t5(Colors.black),minFontSize: 5,maxLines: 1,)
                 ],
               ),
             ),
@@ -99,8 +99,8 @@ class _ServiceBoxSmallState extends State<ServiceBoxSmall>{
             borderRadius: BorderRadius.all(Radius.circular(5))
           ),
           margin: EdgeInsets.only(left: (sizeHorizontal * 5)),
-          width: 75,
-          height: 75,
+          width: 80,
+          height: 85,
         ):Container()
       ],
     );

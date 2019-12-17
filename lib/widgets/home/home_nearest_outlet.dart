@@ -45,8 +45,9 @@ class HomeNearestOutlet extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 15),
+      margin: EdgeInsets.symmetric(vertical: 20),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
             margin: EdgeInsets.symmetric(vertical: 10, horizontal: sizeHorizontal * 6),
@@ -54,30 +55,32 @@ class HomeNearestOutlet extends StatelessWidget{
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text('Outlet Terdekat', style: h5(Colors.black),),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text('Outlet kami yang paling dekat', style:t3(Colors.grey)),
-                    GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> OutletsByDistanceScreen(type: 'all',)));
-                      },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 5,horizontal: 10),
-                        decoration: BoxDecoration(
-                            color: dailyRed,
-                            borderRadius: BorderRadius.all(Radius.circular(20))
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text('Outlet kami yang paling dekat', style:t3(Colors.grey)),
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> OutletsByDistanceScreen(type: 'all',)));
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(vertical: 5,horizontal: 10),
+                          decoration: BoxDecoration(
+                              color: dailyRed,
+                              borderRadius: BorderRadius.all(Radius.circular(20))
+                          ),
+                          child: Text('Lihat Semua', style: h7(Colors.white),),
                         ),
-                        child: Text('Lihat Semua', style: h6(Colors.white),),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 )
               ],
             ),
           ),
           SizedBox(
-            height: 190,
+            height: 210,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,

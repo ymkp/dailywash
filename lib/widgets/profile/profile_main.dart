@@ -70,7 +70,7 @@ class _ProfileMainState extends State<ProfileMain>{
           ),
           Container(
             margin: EdgeInsets.only(top: 15),
-            child: Text('Yochanan Maranatha Kristian Putra', style: h6(Colors.black),),
+            child: Text('Reza Ilham Maulana', style: h6(Colors.black),),
           )
         ],
       ),

@@ -62,13 +62,14 @@ class _MethodPaymentBottomSheetState extends State<MethodPaymentBottomSheet>{
       child: Card(
         elevation: 3,
         child: Container(
+          padding: EdgeInsets.all(5),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(5)),
-              border: (paymentMethod == 'gopay')?Border.all(color: dailyBlue):null
+              border: (paymentMethod == 'gopay')?Border.all(color: dailyBlue,width: 2):null
           ),
           width: sizeHorizontal * 25,
           height: sizeHorizontal * 25,
-          child: Text('GOPAY'),
+          child: Image.asset('res/graphics/gopay-1.jpg'),
         ),
       ),
     );
@@ -84,13 +85,14 @@ class _MethodPaymentBottomSheetState extends State<MethodPaymentBottomSheet>{
       child: Card(
         elevation: 3,
         child: Container(
+          padding: EdgeInsets.all(5),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(5)),
-              border: (paymentMethod == 'ovo')?Border.all(color: dailyBlue):null
+              border: (paymentMethod == 'ovo')?Border.all(color: dailyBlue,width: 2):null
           ),
           width: sizeHorizontal * 25,
           height: sizeHorizontal * 25,
-          child: Text('OVO'),
+          child: Image.asset('res/graphics/ovologo.png'),
         ),
       ),
     );
@@ -106,13 +108,14 @@ class _MethodPaymentBottomSheetState extends State<MethodPaymentBottomSheet>{
       child: Card(
         elevation: 3,
         child: Container(
+          padding: EdgeInsets.all(5),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(5)),
-              border: (paymentMethod == 'credit')?Border.all(color: dailyBlue):null
+              border: (paymentMethod == 'credit')?Border.all(color: dailyBlue, width: 2):null
           ),
           width: sizeHorizontal * 25,
           height: sizeHorizontal * 25,
-          child: Text('CREDIT'),
+          child: Image.asset('res/graphics/visamastercard.jpg'),
         ),
       ),
     );

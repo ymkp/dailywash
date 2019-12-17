@@ -9,9 +9,9 @@ import 'package:provider/provider.dart';
 
 class OrderCheckoutScreen extends StatefulWidget{
 
-
+  final String alamatLaundry;
   final List<OrderCheckout> orderCheckouts;
-  OrderCheckoutScreen({this.orderCheckouts});
+  OrderCheckoutScreen({this.orderCheckouts, this.alamatLaundry});
 
   @override
   _OrderCheckoutScreenState createState() => _OrderCheckoutScreenState();
@@ -76,7 +76,7 @@ class _OrderCheckoutScreenState extends State<OrderCheckoutScreen>{
       ),
       body: ChangeNotifierProvider(
         create: (_) => PickerProvider(),
-        child: OrderCheckoutMain(orderCheckouts: widget.orderCheckouts,),
+        child: OrderCheckoutMain(orderCheckouts: widget.orderCheckouts,alamatLaundry: widget.alamatLaundry,),
       ),
     );
   }

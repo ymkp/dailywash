@@ -6,6 +6,7 @@ import 'package:daily_wash/providers/outlet_info_provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:daily_wash/widgets/outlet/outlet_detail_service_tabs.dart';
+import 'package:daily_wash/pages/order/make_order_screen.dart';
 
 class OutletMain extends StatefulWidget{
 
@@ -23,7 +24,7 @@ class _OutletMainState extends State<OutletMain>{
     // TODO: implement build
     return SingleChildScrollView(
       child: Container(
-        height: sizeVertical * 102,
+        height: sizeVertical * 104,
         child: Column(
           children: <Widget>[
             Container(
@@ -44,7 +45,7 @@ class _OutletMainState extends State<OutletMain>{
                       child:  (oip.state == OIPState.loading || oip.state == OIPState.error)?Container():Text(oip.outletInfo.name, style: h4(Colors.white),)
                   ),
                   Positioned(
-                    top: 22,
+                    top: 30,
                     left: 0,
                     child: GestureDetector(
                       onTap: (){
@@ -60,7 +61,7 @@ class _OutletMainState extends State<OutletMain>{
               decoration: BoxDecoration(
                   border: Border(bottom: BorderSide(color: Colors.grey[300]))
               ),
-              margin: EdgeInsets.symmetric(horizontal: sizeHorizontal * 6, vertical: 15),
+              margin: EdgeInsets.only(left: sizeHorizontal * 6, right: sizeHorizontal * 6, top: 15),
               padding: EdgeInsets.only(bottom: 10),
               child: Column(
                 children: <Widget>[
@@ -79,7 +80,7 @@ class _OutletMainState extends State<OutletMain>{
                     ],
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 10),
+                    margin: EdgeInsets.only(top: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
@@ -164,9 +165,28 @@ class _OutletMainState extends State<OutletMain>{
 //            height: sizeVertical * 67,
               child: ServiceTab(outletInfo: oip.outletInfo,),
             ),
+            orderDeliveryButton()
+
 
           ],
         ),
+      ),
+    );
+  }
+  orderDeliveryButton(){
+    return  (oip.state == OIPState.loading || oip.state == OIPState.error )?Container(): GestureDetector(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) => MakeOrderScreen(outletInfo: oip.outletInfo,)));
+      },
+      child: Container(
+        margin: EdgeInsets.only(bottom: 20),
+        padding: EdgeInsets.symmetric(vertical: 10),
+        width: sizeHorizontal * 90,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            color: dailyRed
+        ),
+        child: Text('Buat Pesanan Laundry',style: h5(Colors.white),textAlign: TextAlign.center,),
       ),
     );
   }
